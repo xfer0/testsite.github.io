@@ -2,5 +2,21 @@
 <body>
 <h1>TEST</h1>
 <script>console.log('test2');</script>
+<script type="text/javascript">
+console.log('this is a test');
+   fetch('https://viya-60379287604.engage.sas.com/reports/', {
+  method: 'GET',
+})
+  .then(response => {
+    // Get the X-Csrf-Token header from the response
+    const csrfToken = response.headers.get('X-Csrf-Token');
+    
+    // Print the CSRF token value
+    console.log('X-Csrf-Token:', csrfToken);
+  })
+  .catch(error => {
+    console.error('Error fetching the report:', error);
+  });
+</script>
 </body>
 </html>
